@@ -149,7 +149,7 @@ ol {
   display: block;
   font-weight: 500;
   padding: 24px 0;
-
+  position: relative;
   transition-property: color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -160,17 +160,21 @@ ol {
   color: var(--pressed-state-color);
 }
 
+.current-page {
+  color: #404bbf;
+}
+
 .current-page::after {
   content: "";
+  position: absolute;
   width: 100%;
   height: 4px;
   left: 0px;
   top: 44px;
-  bottom: -1px;
   background: #404bbf;
   border-radius: 2px;
   display: block;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .contacts:hover,
@@ -246,10 +250,7 @@ ol {
   cursor: pointer;
   border: transparent;
   margin: 0 auto;
-
-  transition-property: background;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-btn:hover,
@@ -383,10 +384,7 @@ ol {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  transition-property: background;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .teams-soc-link:hover,
@@ -447,10 +445,7 @@ ol {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  transition-property: background;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-soc-link:hover,
@@ -475,10 +470,10 @@ ol {
   border-radius: 4px;
   cursor: pointer;
   border: 1px solid#e7e9fc;
-
-  transition-property: background;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-btn:hover,
@@ -535,11 +530,6 @@ ol {
   width: calc((100% - 48px) / 3);
 }
 
-.portfolio-cards:hover .cover-text-image {
-  transform: translateY(0);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .portfolio-card-item {
   display: block;
 
@@ -571,6 +561,12 @@ ol {
   height: 100%;
   padding: 40px 32px;
   transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-cards:hover .cover-text-image,
+.portfolio-cards:focus .cover-text-image {
+  transform: translateY(0);
 }
 /* ==================================== PORTFOLIO ==================================== */
 
@@ -619,7 +615,8 @@ ol {
   position: fixed;
   background-color: rgba(46, 47, 66, 0.4);
   top: 0;
-  transition: opacity 300ms linear; visibility 300ms linear;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
@@ -627,34 +624,57 @@ ol {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms linear;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 408px;
   min-height: 584px;
   border-radius: 4px;
   background-color: #fcfcfc;
   padding: 24px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .backdrop.is-hidden .modal {
-   transform: translate(-50%, -50%) scaleX(0);
+  transform: translate(-50%, -50%) scaleX(0);
 }
 
 .modal-close {
   display: flex;
-margin-left: auto;
-width: 24px;
-height: 24px;
-background: #E7E9FC;
-border: 1px solid rgba(0, 0, 0, 0.1);
-border-radius: 50%;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
+  margin-left: auto;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  background: #e7e9fc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  background-color: #404bbf;
+  border: none;
 }
 
 .is-hidden {
-  visibility: none;
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
+}
+
+.modal-close-icon {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close-icon:hover,
+.modal-close-icon:focus {
+  fill: #ffffff;
 }
