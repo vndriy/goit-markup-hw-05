@@ -564,10 +564,11 @@ ol {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-cards:hover .cover-text-image,
-.portfolio-cards:focus .cover-text-image {
+.portfolio-card-item:hover .cover-text-image,
+.portfolio-card-item:focus .cover-text-image {
   transform: translateY(0);
 }
+
 /* ==================================== PORTFOLIO ==================================== */
 
 /* ==================================== CUSTOMERS ==================================== */
@@ -674,7 +675,7 @@ ol {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-close-icon:hover,
-.modal-close-icon:focus {
+.modal-close:hover,
+.modal-close:focus {
   fill: #ffffff;
 }
